@@ -1,0 +1,24 @@
+# .gitignore for Text-Cell-Analyzer project
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# VS Code settings
+.vscode/
+
+# Neovim swap/backup files
+*.swp
+*.swo
+*.swn
+
+# Environment files
+.env
+.venv
+env/
+venv/
+
+# Windows thumbnail cache
+Thumbs.db
+
+
