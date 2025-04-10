@@ -1,4 +1,4 @@
-# Text-Cell-Anayser
+# Text-Cell-Analyzer
 
 A follow-up educational project to my bookbot Python program.
 
