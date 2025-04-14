@@ -12,7 +12,7 @@ def main():
     print(f"[DEBUG] Successfully loaded data with shape: {df.shape}") # Debugging
     # Enumerate and display the columns
     for index, column in enumerate(df.columns):
-        print(f"{index}: {columns}")
+        print(f"{index}: {column}")
     column_index = int(input("Enter the index of the column you want to select: ")) #Prompt User to input column index
     selected_column = df.iloc[:, column_index] # use idloc to select column index.
 
