@@ -10,17 +10,17 @@ def main():
     
     df = pd.read_excel(file_path) # Use pandas and read the xl file, assign this to df(DataFrame)
     print(f"[DEBUG] Successfully loaded data with shape: {df.shape}") # Debugging
+    # Enumerate and display the columns
+    for index, column in enumerate(df.columns):
+        print(f"{index}: {columns}")
+    column_index = int(input("Enter the index of the column you want to select: ")) #Prompt User to input column index
+    selected_column = df.iloc(:, column_index) # use idloc to select column index.
 
-    # Defining patterns I want to count
-    targets = ['Nottingham', 'st davids', 'cambridge', 
-    'leicester', 'inverness', 'milton keynes', 'southamptop',
-    'carlise', 'chester', 'wells', 'coventry', 'belfast',
-    'doncaster', 'preston', 'dundee', 'swansee', 'dunfermline',
-    'york', 'edinburgh', 'newry', 'oxford', 'peterborough', 'plymouth',
-    'portsmouth', 'southend-on-sea', 'ripon', 'st albans', 'armagh',
-    'bangor', 'st asaph', 'lichfield', 'sunderland', 'lincoln', 'wakefield',
-    'lisburn', 'wrexham', 'londonderry', 'aberdeen', 'manchester']
 
+
+    # Making pattern targets dynamic user input
+    user_input = input("Enter target keywords seperated by commas: ")
+    targets = [word.strip() for word in user_input.split(',')]
     target_count = {} # Counter for the target
     
     
