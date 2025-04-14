@@ -13,9 +13,12 @@ def main():
     # Enumerate and display the columns
     for index, column in enumerate(df.columns):
         print(f"{index}: {column}")
-    user_input = input("Enter the indice(s) of column (s) you want to select seperated by ',': ") # Modified the string prompt
-    split_input = user_input.split(',') # Splitting the user input by comma
+    column_input = input("Enter the indice(s) of column (s) you want to select seperated by ',': ") # Modified the string prompt
+    print(f"[DEBUG] Raw column input: {column_input}")
+    split_input = column_input.split(',') # Splitting the user input by comma
+    print(f"[DEBUG] Split column input: {split_input}")
     indices = [int(index.strip()) for index in split_input] # Take the user input, clean off whitespaces using strip and then convert to integer and store in 'indices'
+    print(f"[DEBUG] Cleaned column indices: {indices}")
     selected_column = df.iloc[:, indices] # use idloc to select column index.
 
 
