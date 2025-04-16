@@ -1,10 +1,12 @@
 # Load libraries
-import pandas as pd
-import os
+import pandas as pd # Used for interaction with xlsx files
+import os # Used in file loading logic
+import re # Used in the data search logic (string patterns)
 
 
 def main():
-    
+
+    # File loading logic:
     # Load the Excel file
     file_path = input("Please enter the path to your excel file: ")
     
@@ -20,16 +22,20 @@ def main():
     print(f"[DEBUG] Attempting to load file from path: {file_path}") # Debugging
     
     
-    
+    # Data retrieval and Analysis Logic:
     # Enumerate and display the columns
     for index, column in enumerate(df.columns):
         print(f"{index}: {column}")
+    
     column_input = input("Enter the indice(s) of column (s) you want to select seperated by ',': ") # Modified the string prompt
     print(f"[DEBUG] Raw column input: {column_input}")
+    
     split_input = column_input.split(',') # Splitting the user input by comma
     print(f"[DEBUG] Split column input: {split_input}")
+    
     indices = [int(index.strip()) for index in split_input] # Take the user input, clean off whitespaces using strip and then convert to integer and store in 'indices'
     print(f"[DEBUG] Cleaned column indices: {indices}")
+    
     selected_column = df.iloc[:, indices] # use idloc to select column index.
 
 
@@ -52,7 +58,7 @@ def main():
                 # Make sure the cell is a string before searching
                 # Check 1. is the cell a strin (isinstance)
                 # Check 2. Does the target word appear in the cell
-                if isinstance(cell, str) and target.lower() in cell.lower(): # .lower so that it is case-insensitive
+                if re.search(target, cell, flags=re.IGNORECASE) : # .lower so that it is case-insensitive
                     print(f"[DEBUG] Match found in cell: {cell}")
                     # If both conditions(checks above) are true, increase the counter below by 1
                     count += 1
