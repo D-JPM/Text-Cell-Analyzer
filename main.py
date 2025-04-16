@@ -62,13 +62,5 @@ def main():
     for target, count in target_count.items():
         print(f"'{target}' was found {count} times in the spreadsheet.")
 
-
-
-
-
-
-    # Preview of the data (testing)
-    #print(df.head(10)) # Show only the first few rows (This string method belongs to pandas - not python default) .head returns first 5 rows when left empty but can specific number.
-
 if __name__ == "__main__":
     main()
