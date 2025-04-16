@@ -1,15 +1,26 @@
 # Load libraries
 import pandas as pd
+import os
 
 
 def main():
     
     # Load the Excel file
-    file_path = "data/MOCK_DATA_REPORT.xlsx"
+    file_path = input("Please enter the path to your excel file: ")
+    
+    # Run through file load and debug statements
+    if os.path.isfile(file_path):
+        print("[DEBUG] File loaded")
+        print(f"[DEBUG] Attempting to load file from path: {file_path}")
+        df = pd.read_excel(file_path) #Use pandas and read the xl file, assign this to df(DataFrame)
+        print(f"[DEBUG] Successgully loaded data with shape: {df.shape}")
+    else:
+        print("[DEBUG] File not loaded, please check file format and path is correct.")
+        return # Exit if file is invalid or load fails.
     print(f"[DEBUG] Attempting to load file from path: {file_path}") # Debugging
     
-    df = pd.read_excel(file_path) # Use pandas and read the xl file, assign this to df(DataFrame)
-    print(f"[DEBUG] Successfully loaded data with shape: {df.shape}") # Debugging
+    
+    
     # Enumerate and display the columns
     for index, column in enumerate(df.columns):
         print(f"{index}: {column}")
