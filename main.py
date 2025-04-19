@@ -35,9 +35,15 @@ def main():
     
     indices = [int(index.strip()) for index in split_input] # Take the user input, clean off whitespaces using strip and then convert to integer and store in 'indices'
     print(f"[DEBUG] Cleaned column indices: {indices}")
+    
     selected_columns = df.iloc[:, indices] # Select only user chosen columns    
     total_num_valid_cells = selected_columns.count().sum() # Count the total number of valid(non-empty) cells across all selected columms
     print(f"[DEBUG] Total non-empty cells across selected columns: {total_num_valid_cells}")
+
+    total_cells = selected_columns.size
+    print(f"[DEBUG] Total cells: {total_cells}")
+    percentage = (total_num_valid_cells / total_cells) * 100
+    print(f"[DEBUG] Percentage logic completed: {percentage}")
 
 
     # Keyword Input Logic:
