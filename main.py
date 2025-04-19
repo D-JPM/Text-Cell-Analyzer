@@ -35,8 +35,9 @@ def main():
     
     indices = [int(index.strip()) for index in split_input] # Take the user input, clean off whitespaces using strip and then convert to integer and store in 'indices'
     print(f"[DEBUG] Cleaned column indices: {indices}")
-    
-    
+    selected_columns = df.iloc[:, indices] # Select only user chosen columns    
+    total_num_valid_cells = selected_columns.count().sum() # Count the total number of valid(non-empty) cells across all selected columms
+    print(f"[DEBUG] Total non-empty cells across selected columns: {total_num_valid_cells}")
 
 
     # Keyword Input Logic:
@@ -68,6 +69,8 @@ def main():
         target_count[target] = count
     print(f"[DEBUG] Total matches across all targets: {sum(target_count.values())}")
     # Print the total sum of target_count from the dictionary
+
+    
 
     # Summary Output Logic:
     
